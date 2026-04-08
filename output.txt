@@ -1,0 +1,54 @@
+Script started on Wed Apr  8 10:34:32 2026
+]0;dthissen@r1n01.darwin:~/CISC372_picProject[?1034h[dthissen@r1n01 CISC372_picProject]$ make all
+gcc -O2 -Wall -g -o image image.c -lm
+In file included from [01m[Kimage.c:8:0[m[K:
+[01m[Kstb_image.h:[m[K In function '[01m[Kstbi__load_gif_main[m[K':
+[01m[Kstb_image.h:6779:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kdelays_size[m[K' set but not used [-Wunused-but-set-variable]
+       int delays_size = 0;
+[01;32m[K           ^[m[K
+[01m[Kstb_image.h:6778:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kout_size[m[K' set but not used [-Wunused-but-set-variable]
+       int out_size = 0;
+[01;32m[K           ^[m[K
+[01m[Kimage.c:[m[K In function '[01m[KgetPixelValue[m[K':
+[01m[Kimage.c:33:23:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kspan[m[K' set but not used [-Wunused-but-set-variable]
+     int px,mx,py,my,i,span;
+[01;32m[K                       ^[m[K
+[01m[Kimage.c:33:21:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[Ki[m[K' [-Wunused-variable]
+     int px,mx,py,my,i,span;
+[01;32m[K                     ^[m[K
+[01m[Kimage.c:[m[K In function '[01m[Kconvolute[m[K':
+[01m[Kimage.c:60:21:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kspan[m[K' set but not used [-Wunused-but-set-variable]
+     int row,pix,bit,span;
+[01;32m[K                     ^[m[K
+[01m[Kimage.c:[m[K In function '[01m[Kmain[m[K':
+[01m[Kimage.c:104:30:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[KbwImage[m[K' [-Wunused-variable]
+     Image srcImage,destImage,bwImage;   
+[01;32m[K                              ^[m[K
+gcc -O2 -Wall -g -o image_pthreads image_pthreads.c -lpthread -lm
+In file included from [01m[Kimage_pthreads.c:35:0[m[K:
+[01m[Kstb_image.h:[m[K In function '[01m[Kstbi__load_gif_main[m[K':
+[01m[Kstb_image.h:6779:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kdelays_size[m[K' set but not used [-Wunused-but-set-variable]
+       int delays_size = 0;
+[01;32m[K           ^[m[K
+[01m[Kstb_image.h:6778:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kout_size[m[K' set but not used [-Wunused-but-set-variable]
+       int out_size = 0;
+[01;32m[K           ^[m[K
+gcc -O2 -Wall -g -fopenmp -o image_openmp image_openmp.c -lm
+In file included from [01m[Kimage_openmp.c:40:0[m[K:
+[01m[Kstb_image.h:[m[K In function '[01m[Kstbi__load_gif_main[m[K':
+[01m[Kstb_image.h:6779:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kdelays_size[m[K' set but not used [-Wunused-but-set-variable]
+       int delays_size = 0;
+[01;32m[K           ^[m[K
+[01m[Kstb_image.h:6778:11:[m[K [01;35m[Kwarning: [m[Kvariable '[01m[Kout_size[m[K' set but not used [-Wunused-but-set-variable]
+       int out_size = 0;
+[01;32m[K           ^[m[K
+]0;dthissen@r1n01.darwin:~/CISC372_picProject[dthissen@r1n01 CISC372_picProject]$ ./image_pthreads pic1.jpg edge
+Running with 4 pthreads on a 4032x3024 image...
+Took 3 seconds
+]0;dthissen@r1n01.darwin:~/CISC372_picProject[dthissen@r1n01 CISC372_picProject]$ OMP_NUM_THREADS=4 ./image_openmp pic1.jpg edge
+Running with 4 OpenMP thread(s) on a 4032x3024 image...
+Took 3 seconds
+]0;dthissen@r1n01.darwin:~/CISC372_picProject[dthissen@r1n01 CISC372_picProject]$ exit
+exit
+
+Script done on Wed Apr  8 10:34:58 2026
